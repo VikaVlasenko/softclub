@@ -2,8 +2,9 @@ package com.softclub.vvv.service;
 
 
 
-import com.softclub.vvv.model.User;
 import org.springframework.stereotype.Service;
+
+import com.softclub.vvv.models.User;
 
 @Service
 public class UserServiceImpl implements UserService {
