@@ -23,9 +23,11 @@ public class usersController {
 
     @GetMapping(value="/list_user")
     public String listuser(Model model) {
+        
        Iterable<Users> users =usersRepository.findAll();
-       model.addAttribute("users", users);
-       return "users/addUser";
+
+       model.addAttribute("Users", users);
+       return "users/listUser";
     }
 
 

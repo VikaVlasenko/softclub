@@ -2,22 +2,26 @@ package com.softclub.vvv.models;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-//import javax.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+//import jakarta.persistence.Table;
+import jakarta.validation.constraints.Size;
 
 
-//@Table(name="Users")
-
+//@Table(name="users")
 @Entity
 public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  Long id;
-    private String login,passw;
+
+    @Size(min = 1, max = 1024, message = "Логин должен быть от 1 до 16 символов")
+    private String login;
+    private String passw;
+    private Date dateLast;
     
     public Long getId() {
         return id;
@@ -43,6 +47,5 @@ public class Users {
     public Date getDateLast() {
         return dateLast;
     }
-    private Date dateLast;
     
 }
