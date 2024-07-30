@@ -24,15 +24,6 @@ public class mainController {
         model.addAttribute("title", "О программе");       
         return "about";
     }
-
-        
-    @GetMapping(value="/add_user")
-    public String adduser(Model model) {
-        model.addAttribute("title", "Главная страница");       
-        return "users/addUser";
-    }
-    
-        
    
 
 }
