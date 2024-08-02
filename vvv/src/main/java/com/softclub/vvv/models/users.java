@@ -18,11 +18,17 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  Long id;
 
-    @Size(min = 1, max = 1024, message = "Логин должен быть от 1 до 16 символов")
+    @Size(min = 1, max = 16, message = "Логин должен быть от 1 до 16 символов")
     private String login;
+    @Size(min = 1, max = 16, message = "Пароль должен быть от 1 до 16 символов")
     private String passw;
     private Date dateLast;
     
+    public Users(@Size(min = 1, max = 16, message = "Логин должен быть от 1 до 16 символов") String login,
+            @Size(min = 1, max = 16, message = "Пароль должен быть от 1 до 16 символов") String passw) {
+        this.login = login;
+        this.passw = passw;
+    }
     public Long getId() {
         return id;
     }
@@ -47,5 +53,8 @@ public class Users {
     public Date getDateLast() {
         return dateLast;
     }
+    public Users() {
+    }
+   
     
 }

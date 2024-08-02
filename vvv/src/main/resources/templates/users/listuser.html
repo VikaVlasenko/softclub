@@ -16,6 +16,10 @@
 
     <div th:each="el: ${Users}" class="alert alert-info mt-2"> 
         <h3  th:text="${el.login}" />
+        <form th:action="'/'+${el.id}+'/remove'">
+           <button class="btn btn-warning" type="submit">Удалить пользователя</button>
+        </form>
+        
     </div>
 
   </div>

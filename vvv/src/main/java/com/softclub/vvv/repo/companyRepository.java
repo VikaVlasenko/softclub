@@ -3,11 +3,10 @@ package com.softclub.vvv.repo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.softclub.vvv.models.Users;
-
+import com.softclub.vvv.models.Company;
 
 @Repository
-public interface usersRepository  extends CrudRepository<Users,Long>{
+public interface companyRepository extends CrudRepository<Company, Long>  {
 
 
 }

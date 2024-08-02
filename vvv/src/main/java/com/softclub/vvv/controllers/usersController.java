@@ -4,6 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 import com.softclub.vvv.models.Users;
 import com.softclub.vvv.repo.usersRepository;
@@ -30,6 +34,20 @@ public class usersController {
        return "users/listUser";
     }
 
+    @PostMapping(value="/add_user")
+    public String addUserButton(@RequestParam String login,@RequestParam String password, Model model) {
+        Users us= new Users(login, password);
+        usersRepository.save(us);
+        return "redirect:/";
+    }
 
+    @GetMapping(value="/{id}/remove")
+    public String RemoveUser(@PathVariable(value="id") long id, Model model ) {
+
+    Users user=usersRepository.findById(id).orElseThrow();
+    usersRepository.delete(user);
+        return "redirect:/";
+    }
+    
 
 }
